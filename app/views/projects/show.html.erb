@@ -1,0 +1,36 @@
+<h1> Project: <%= @project.name %></h1>
+
+<div>
+  <%= render 'tasks/form', :task => Task.new %>
+</div>
+<hr />
+<div id='initial-tasks' class='task-list'>
+  <h2>Initial</h2>
+  <% @project.tasks.initial.each do |task| %>
+    <%= render task %>
+  <% end %>
+</div>
+<div class='clear'>
+<div id='in-progress-tasks' class='task-list'>
+  <h2>In Progress</h2>
+  <% @project.tasks.in_progress.each do |task| %>
+    <%= render task %>
+  <% end %>
+</div>
+<div class='clear'>
+<div id='verify-tasks' class='task-list'>
+  <h2>Verify</h2>
+  <% @project.tasks.verify.each do |task| %>
+    <%= render task %>
+  <% end %>
+</div>
+<div class='clear'>
+<div id='done-tasks' class='task-list'>
+  <h2>Done</h2>
+  <% @project.tasks.done.each do |task| %>
+    <%= render task %>
+  <% end %>
+</div>
+<div class='clear'>
+
+<%= link_to 'Back', projects_path %>

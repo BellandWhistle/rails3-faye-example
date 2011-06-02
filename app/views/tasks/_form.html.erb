@@ -1,0 +1,11 @@
+<%= form_for(task, :remote => true) do |f| %>
+  <%= hidden_field :task, :project_id, :value => @project.id %>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
