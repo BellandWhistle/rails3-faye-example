@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+projects = Project.create([{ :name => 'Rails 2'}, { :name => 'Rails 3.0'}, {:name => 'Stuff on Rails 3.1'}])
+
+tasks = [
+  "The Asset Pipeline",
+  "HTTP Streaming",
+  "jQuery is now the default",
+  "Reversible migrations",
+  "Mountable engines",
+  "Identity Map",
+  "Prepared statements",
+  "Rack::Cache on by default",
+  "Turn test-output on Ruby 1.9",
+  "Force SSL",
+  "Role-based mass-assignment protection",
+  "BCrypt-based passwords",
+  "Custom serializers"
+  ]
+
+tasks.each do |task|
+Task.create(:project => projects.last, :description => task)
+end

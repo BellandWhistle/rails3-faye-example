@@ -1,6 +1,6 @@
 .clear {clear:both;}
 .task {float:left;width:140px;border:1px solid gray;padding:3px;margin:5px;}
-.task p {font-size:11px;min-height:20px;}
+.task p {font-size:11px;min-height:40px;}
 .task-list {padding: 10px;}
 #initial-tasks .task {background:#FFDDDD;}
 #in-progress-tasks .task {background:#DDFFDD;}
