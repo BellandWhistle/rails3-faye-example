@@ -1,0 +1,7 @@
+== Rails 3 application using Faye
+
+* https://github.com/jcoglan/faye
+
+In this application will show how to integrate Faye with Rails.
+
+More information at: http://blog.bell-n-whistle.com
