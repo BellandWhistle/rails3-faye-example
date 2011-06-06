@@ -10,27 +10,38 @@
     <%= render task %>
   <% end %>
 </div>
-<div class='clear'>
+<div class='clear'></div>
 <div id='in-progress-tasks' class='task-list'>
   <h2>In Progress</h2>
   <% @project.tasks.in_progress.each do |task| %>
     <%= render task %>
   <% end %>
 </div>
-<div class='clear'>
+<div class='clear'></div>
 <div id='verify-tasks' class='task-list'>
   <h2>Verify</h2>
   <% @project.tasks.verify.each do |task| %>
     <%= render task %>
   <% end %>
 </div>
-<div class='clear'>
+<div class='clear'></div>
 <div id='done-tasks' class='task-list'>
   <h2>Done</h2>
   <% @project.tasks.done.each do |task| %>
     <%= render task %>
   <% end %>
 </div>
-<div class='clear'>
+<div class='clear'></div>
 
 <%= link_to 'Back', projects_path %>
+
+
+<% javascript_tag do %>
+  $(function() {
+    var client = new Faye.Client('http://localhost:9292/faye');
+    client.subscribe("<%= project_path(@project) %>", function(data) {
+      var task_view = $('#task-'+ data.task_id).remove();
+      $('#'+ data.task_state + '-tasks').append(task_view).fadeIn();
+    });
+  });
+<% end %>
